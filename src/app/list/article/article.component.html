@@ -1,0 +1,5 @@
+<div class="article--container">
+    <h2 class="article--title">{{ article.title }}</h2>
+    <p class="article--content">{{ article.content | truncatePipe: 150 }}</p>
+    <span class="article--comment-number" *ngIf="article.comments.length">Nombre de commentaires : {{article.comments.length}}</span>
+</div>

@@ -1,0 +1,15 @@
+.container {
+    margin-top: 50px;
+}
+
+.articles {
+    display: flex;
+    margin-top: 40px;
+}
+
+.article--container {
+    /*width: 300px;*/
+    border: 1px solid black;
+    padding: 20px;
+    margin-right: 30px;
+}
