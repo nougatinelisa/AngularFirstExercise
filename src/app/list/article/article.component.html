@@ -2,4 +2,5 @@
     <h2 class="article--title">{{ article.title }}</h2>
     <p class="article--content">{{ article.content | truncatePipe: 150 }}</p>
     <span class="article--comment-number" *ngIf="article.comments.length">Nombre de commentaires : {{article.comments.length}}</span>
+    <a [routerLink]="[article.id]" class="btn btn-dark">Voir le détail de l'article</a>
 </div>

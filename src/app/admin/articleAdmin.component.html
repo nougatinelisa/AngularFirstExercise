@@ -1,0 +1,16 @@
+<form class="article-edit--form" (submit)="saveArticle()" #ArticleEditForm="ngForm">
+    <div class="alert alert-warning" role="alert" [hidden]="!ArticleEditTitle.errors?.required && !ArticleEditContent.errors?.required">
+        Tous les champs sont obligatoires
+    </div>
+    <div class="form-group">
+        <label for="article-title-edit">Titre de l'article</label>
+        <input type="text" class="form-control" id="article-title-edit" name="article-title"
+               [(ngModel)]="article.title" #ArticleEditTitle="ngModel" required>
+    </div>
+    <div class="form-group">
+        <label for="article-content-edit">Contenu de l'article</label>
+        <textarea class="form-control" rows="7" id="article-content-edit" name="article-content"
+                  [(ngModel)]="article.content" #ArticleEditContent="ngModel" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark" [disabled]="ArticleEditForm.invalid">Valider</button>
+</form>
