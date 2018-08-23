@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../services/articles.service';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
     selector: 'app-article-admin',
@@ -10,7 +10,7 @@ import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 export class ArticleAdminComponent implements OnInit {
     article = {};
-    constructor(private articleService: ArticlesService, private route: ActivatedRoute) {}
+    constructor(private articleService: ArticlesService, private route: ActivatedRoute, private router: Router) {}
     ngOnInit() {
         const snapshot: ActivatedRouteSnapshot = this.route.snapshot;
         const id = Number(snapshot.params.id);
@@ -21,7 +21,10 @@ export class ArticleAdminComponent implements OnInit {
 
     saveArticle() {
         this.articleService.updateArticle(this.article).subscribe( result => {
-            console.log('saved');
+            const router = this.router;
+            setTimeout(function () {
+                router.navigate(['/articles']);
+            }, 1500);
         });
     }
 }

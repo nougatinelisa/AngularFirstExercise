@@ -2,6 +2,9 @@
     <div class="alert alert-warning" role="alert" [hidden]="!ArticleEditTitle.errors?.required && !ArticleEditContent.errors?.required">
         Tous les champs sont obligatoires
     </div>
+    <div class="alert alert-success" role="alert" *ngIf="ArticleEditForm.submitted">
+        Les modifications ont bien été enregistrées !
+    </div>
     <div class="form-group">
         <label for="article-title-edit">Titre de l'article</label>
         <input type="text" class="form-control" id="article-title-edit" name="article-title"
